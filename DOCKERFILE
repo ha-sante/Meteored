@@ -1,0 +1,19 @@
+FROM node:14
+
+WORKDIR /app
+
+COPY /pipelined.app/package*.json ./
+
+ENV PATH="/root/.meteor:$PATH"
+RUN npm i meteor -g --unsafe-perm
+RUN export PATH=/root/.meteor:$PATH
+
+RUN npm install
+
+COPY /pipelined.app/ ./
+
+ENV PORT=80
+
+EXPOSE 80
+
+CMD ["meteor", "run", "--allow-superuser"]

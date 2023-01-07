@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Questrial', 'Rajdhani', sans-serif;
+}
+
+/* Use these custom variables... */
+:root {
+  --polka-bg-image:
+    radial-gradient(rgb(255, 240, 240) 10%, transparent 10%),
+    radial-gradient(rgb(255, 240, 240) 10%, transparent 10%);
+  --polka-bg-position: 0px 0px, 12px 12px;
+  --polka-bg-size: 24px 24px;
+  --polka-bg-color: rgb(255, 255, 255);
+}
+
+/* ...or add this class to an element */
+.polka {
+  background-image:
+    radial-gradient(rgb(255, 240, 240) 10%, transparent 10%),
+    radial-gradient(rgb(255, 240, 240) 10%, transparent 10%);
+  background-position: 0px 0px, 12px 12px;
+  background-size: 24px 24px;
+  background-color: rgb(255, 255, 255);
+}
+
+

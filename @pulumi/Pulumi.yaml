@@ -1,0 +1,3 @@
+name: pipelined.app_on_aws
+runtime: nodejs
+description: A pulumi setup that deploys the pipelined.app service to AWS

@@ -1,0 +1,15 @@
+version: "3"
+services:
+  web:
+    build: .
+    ports:
+      - "80:80"
+  db:
+    image: "mongo"
+    environment:
+      CODE: 2000
+    volumes:
+      - database-data:/mongo
+
+volumes:
+  database-data:
