@@ -67,6 +67,8 @@ export const publicHostName = server.publicDns;
 
 
 // Option 2
-if (){
+if (channels.ecs){
+
+    // 1. 
 
 }
