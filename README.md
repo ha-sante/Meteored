@@ -1,6 +1,6 @@
 # Meteored
 
-I took a stab and built a todo list level app in the meteor framework.
+I took at a stab at building a todo list level app in the meteor framework.
 
 - <https://pipelined.meteorapp.com/>
 
@@ -22,5 +22,14 @@ I took a stab and built a todo list level app in the meteor framework.
 - Install Meteor globally,
 - Npm install & npm run dev command
 
+
+## Deployment
+
+- Meteor Galaxy channel available
+- Docker setup available
+- Pulumi setup available
+- Terraform setup available: if am to touch this again.
+
 ## Notes
+
 docker run -p 80:80 --entrypoint '/bin/sh' 9dd16e11634e -c 'meteor run --allow-superuser --port 80'

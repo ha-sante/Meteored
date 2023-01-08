@@ -5,7 +5,11 @@ import * as awsx from "@pulumi/awsx";
 // Deployment of product image to aws ec2 instance
 // Deployment of product image to an aws eks instance/setup
 // Deployment of product image to aws fargate instance/setup
-
+let channels = {
+    ec2: false,
+    ecs: false,
+    fargate: false,
+}
 
 
 // 1. Prepare an EC2 Instance Image
@@ -38,10 +42,11 @@ const group = new aws.ec2.SecurityGroup("pipelined_secgrp", {
 // 7. Execute the docker image to run
 let userData = `
 #!/bin/bash
-yum update -y
-yum install docker
-service docker start
-yum install git
+sudo yum update -y
+sudo yum install docker
+sudo service docker start
+sudo docker pull hasante212/the_pipelined_app_service:latest 
+sudo docker run hasante212/the_pipelined_app_service 
 `;
 
 // 8. Create the AWS EC2 instance
@@ -56,3 +61,12 @@ const server = new aws.ec2.Instance("pipelined_www", {
 export const publicIp = server.publicIp;
 export const publicHostName = server.publicDns;
 
+
+
+
+
+
+// Option 2
+if (){
+
+}
