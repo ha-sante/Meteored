@@ -23,5 +23,4 @@ I took a stab and built a todo list level app in the meteor framework.
 - Npm install & npm run dev command
 
 ## Notes
-
-- docker run -p 5000:4600 --entrypoint '/bin/sh' 2a6eea04b17a -c 'meteor run --allow-superuser --port 4600'
+docker run -p 80:80 --entrypoint '/bin/sh' 9dd16e11634e -c 'meteor run --allow-superuser --port 80'

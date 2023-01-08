@@ -4,11 +4,12 @@ WORKDIR /app
 
 COPY /pipelined.app/package*.json ./
 
+RUN npm config set registry https://registry.npmjs.org/
 ENV PATH="/root/.meteor:$PATH"
-RUN npm i meteor -g --unsafe-perm
+RUN curl https://install.meteor.com/ | sh
 RUN export PATH=/root/.meteor:$PATH
 
-RUN npm install
+# RUN npm install
 
 COPY /pipelined.app/ ./
 

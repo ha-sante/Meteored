@@ -32,14 +32,19 @@ const group = new aws.ec2.SecurityGroup("pipelined_secgrp", {
 });
 
 // 3. Prepare Instance Init script
+// 4. Build a docker image into a private image registry in aws
+// 5. Setup the instance for the docker instance/image
+// 6. Pull the project folder & it's docker config into the ec2 instance
+// 7. Execute the docker image to run
 let userData = `
 #!/bin/bash
 yum update -y
 yum install docker
 service docker start
+yum install git
 `;
 
-// 3. Create the AWS EC2 instance
+// 8. Create the AWS EC2 instance
 const server = new aws.ec2.Instance("pipelined_www", {
     instanceType: size,
     vpcSecurityGroupIds: [ group.id ], // reference the security group resource above
@@ -51,11 +56,3 @@ const server = new aws.ec2.Instance("pipelined_www", {
 export const publicIp = server.publicIp;
 export const publicHostName = server.publicDns;
 
-
-// 3. Build a docker image into a private image registry in aws
-
-// 4. Setup the instance for the docker instance/image
-
-// 5. Pull the project folder & it's docker config into the ec2 instance
-
-// 6. Execute the docker image to run
